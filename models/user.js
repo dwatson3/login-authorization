@@ -1,4 +1,4 @@
-// MAKE SURE TO GIT PUSH ORIGIN COUNT_AUTH !!!
+// MAKE SURE TO GIT PUSH ORIGIN country-auth !!!
 
 
 var bcrypt = require("bcrypt"); // this is for adding and salting passwords
