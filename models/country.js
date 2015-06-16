@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var countrySchema = new mongoose.Schema({
+var countrySchema = new mongoose.Schema({ // creating a new Schema 
   name: String,
   flag: String,
   capital: String,
@@ -8,6 +8,6 @@ var countrySchema = new mongoose.Schema({
   cities: []
 });
 
-var Country = mongoose.model("Country", countrySchema);
+var Country = mongoose.model("Country", countrySchema); // creating a new Model
 
 module.exports = Country;
