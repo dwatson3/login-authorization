@@ -6,11 +6,23 @@ morgan = require("morgan")
 db = require("./models");
 
 
+// why is bcrypt not included in app.js?
+// we only need bcrypt to run for the user model
+// bcrypt is great for one-way encryption
+
+// role of Middleware is to refactor code
+// can use as a function or an object
+
+// single responsibility principle (Computer Science): 
+// basically one file should only do one thing
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+
+// app.use(loginMiddleware);
 
 app.get('/', function(req,res){
   res.redirect('/countries');
@@ -43,6 +55,7 @@ app.post('/countries', function(req,res){
 // SHOW
 
 app.get('/countries/:id', function(req,res){
+// app.get('/countries/:id', routeMiddleware.ensureLoggedIn, function(req, res))
   db.Country.findById(req.params.id,function(err,country){
     if (err) throw err;
     res.render("countries/show", {country:country});

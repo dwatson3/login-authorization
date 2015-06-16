@@ -2,6 +2,9 @@ mkdir var db = require("../models"); // making a diretory db that is requiring t
 
 var loginHelpers = function (req, res, next) { // next means that its sending it to the server
 
+// var loginMiddleware = function (req, res, next) {
+// loginMiddleware is a function	
+
 	req.login = function (user) { 
 		req.session.id = user._id; // requiring a user id to log-in
 	};
@@ -15,3 +18,5 @@ var loginHelpers = function (req, res, next) { // next means that its sending it
 };
 
 module.exports = loginHelpers;
+
+// app.use(loginMiddleware)
